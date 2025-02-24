@@ -1,3 +1,34 @@
 public class Train {
 
+    //Attributes
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
