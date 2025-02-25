@@ -64,16 +64,15 @@ public class Engine implements EngineRequirements {
      * @return true if the engine still has fuel remaining, false if it is empty.
      */
     public Boolean go(){
-        if (this.currentFuelLevel == 0){
+        if (this.currentFuelLevel <= 0){
             System.out.println("Train is out of fuel, can't move." + this.currentFuelLevel);
             return false;
         }
-        if (this.currentFuelLevel > 0){
-            this.currentFuelLevel = this.currentFuelLevel - 15;
+        else { 
+            this.currentFuelLevel -= 15;
             System.out.println("Train is moving with" + this.currentFuelLevel + "fuel left.");
             return true;
         }
-       
     }
 
 

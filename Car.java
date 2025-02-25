@@ -97,8 +97,8 @@ public class Car implements CarRequirements {
         System.out.println(myCar); // Should print: "Car Capacity: 2, Occupied Seats: 0"
     
         // Creates Passengers
-        Passenger p1 = new Passenger("Alice");
-        Passenger p2 = new Passenger("Bob");
+        Passenger p1 = new Passenger("Alice", 30);
+        Passenger p2 = new Passenger("Bob", 45);
 
     
         // Add Passengers
@@ -117,9 +117,4 @@ public class Car implements CarRequirements {
         System.out.println(myCar); // Should print: "Car Capacity: 2, Occupied Seats: 1"
     }
     
-
-
-
-
-
 }
