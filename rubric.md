@@ -45,7 +45,7 @@ __**Yes**___ 4 pts: Programs implement interfaces and compile without errors or 
 
 __**Yes**___ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+__**Yes**___ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
       __**Yes**__ Classes & class members all have Javadoc header comments
 

@@ -49,11 +49,16 @@ public class Car implements CarRequirements {
      */
     public Boolean addPassenger(Passenger p){
         if(this.seatsRemaining() > 0){
-            this.passengersOnboard.add(p);
-            System.out.println("Passenger added");
-            return true;
-        }
-        else{
+            if (!this.passengersOnboard.contains(p)) {
+                this.passengersOnboard.add(p);
+                System.out.println("Passenger added");
+                return true;
+            } else {
+                System.out.println("This passenger has already been added");
+                return false; 
+            }
+
+        } else {
             System.out.println("Car is full. Passenger can't be added");
             return false;
         }
@@ -69,8 +74,7 @@ public class Car implements CarRequirements {
         if(this.passengersOnboard.contains(p)){
             this.passengersOnboard.remove(p);
             return true;
-        }
-        else{
+        } else {
             System.out.println("Passenger not found");
             return false;
         }
@@ -80,13 +84,22 @@ public class Car implements CarRequirements {
      * Prints a list of all passengers currently onboard.
      * If the car is empty, prints a message stating that.
      */
-
     public void printManifest(){
-        for(Passenger p : this.passengersOnboard){
-            System.out.println(p);
+        if (this.passengersOnboard.isEmpty()) {
+            System.out.println("This car is EMPTY.");
+        } else {
+            for(Passenger p : this.passengersOnboard){
+                System.out.println(p);
+            }
         }
     } 
 
+    /**
+     * Returns a string representation of the car, including the number of seats remaining.
+     *
+     * @return a string in the format "Car with X seats remaining", where X is the number
+     *         of seats remaining in the car.
+     */
     public String toString(){
         return "Car with " + this.seatsRemaining() + " seats remaining";
     }
@@ -95,6 +108,7 @@ public class Car implements CarRequirements {
         // Creates a Car with capacity 2
         Car myCar = new Car(2);
         System.out.println(myCar); // Should print: "Car Capacity: 2, Occupied Seats: 0"
+        myCar.printManifest();
     
         // Creates Passengers
         Passenger p1 = new Passenger("Alice", 30);
@@ -103,6 +117,7 @@ public class Car implements CarRequirements {
     
         // Add Passengers
         myCar.addPassenger(p1);
+        System.out.println(myCar);
         myCar.addPassenger(p2);
         System.out.println(myCar); // Should print: "Car Capacity: 2, Occupied Seats: 2"
     

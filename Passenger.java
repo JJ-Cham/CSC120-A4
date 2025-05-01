@@ -5,7 +5,7 @@ public class Passenger implements PassengerRequirements {
     private int age; 
 
     /**
-     * Constructor 
+     * Constructor - creates a passenger using thier name and age 
      * @param name - passenger's name 
      * @param age - passenger's age 
      */
@@ -21,27 +21,28 @@ public class Passenger implements PassengerRequirements {
     public void boardCar(Car c) {
         if (c.addPassenger(this)) {
             System.out.println(this.name + " has boarded the car.");
-        }
-
-        else {
+        } else {
             System.out.println("This car is full. " + this.name + " cannot board the car.");
         }
-        }
+    }
     
-        /**
-         * Passenger gets off car if they are not already on it  
-         * @param c The car the passenger is getting off of. 
-         */
+    /**
+     * Passenger gets off car if they are not already on it  
+     * @param c The car the passenger is getting off of. 
+     */
     public void getOffCar(Car c) {
         if (c.removePassenger(this)) {
             System.out.println(this.name + " has gotten off the car.");;
-        }
-        
-        else {
+        } else {
             System.out.println(this.name + " is not on board");
         }
     }
 
+    /**
+     * Returns a string representation of the passenger, including their name and age.
+     *
+     * @return a string in the format "Passenger: Name = [name] Age = [age]"
+     */
     public String toString() {
         return "Passenger: Name = " + this.name + " Age = " + this.age;
     } 

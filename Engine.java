@@ -12,7 +12,6 @@ public class Engine implements EngineRequirements {
      * @param fuelType The type of fuel used by the engine.
      * @param maxFuelLevel The maximum amount of fuel the engine can hold.
      */
-    //Constructor 
     public Engine(FuelType f, double currentFuelLevel, double maxFuelLevel) {
         this.f = f;
         this.currentFuelLevel = currentFuelLevel;
@@ -29,7 +28,8 @@ public class Engine implements EngineRequirements {
     }
 
     //Accessor Methods
-        /**
+
+    /**
      * Returns the maximum fuel level of the engine.
      *
      * @return The maximum fuel capacity.
@@ -61,14 +61,16 @@ public class Engine implements EngineRequirements {
      * Moves the train by consuming fuel.
      * Reduces the fuel level and prints the remaining amount.
      * 
-     * @return true if the engine still has fuel remaining, false if it is empty.
+     * @return true if the engine still has fuel remaining, false if it is empty or there is not enough fuel.
      */
     public Boolean go(){
         if (this.currentFuelLevel <= 0){
             System.out.println("Train is out of fuel, can't move." + this.currentFuelLevel);
             return false;
-        }
-        else { 
+        } else if (this.currentFuelLevel < 15) {
+            System.out.println("Not enough fuel to move. Current fuel level: " + this.currentFuelLevel);
+            return false;
+        } else { 
             this.currentFuelLevel -= 15;
             System.out.println("Train is moving with" + this.currentFuelLevel + "fuel left.");
             return true;
@@ -76,9 +78,16 @@ public class Engine implements EngineRequirements {
     }
 
 
+    /**
+     * Returns a string representation of the fuel information for the vehicle.
+     * Includes the fuel type, current fuel level, and maximum fuel level.
+     *
+     * @return a string in the format "FuelType: [fuel type] Current Fuel Level: [current level] Max Fuel Level: [max level]"
+     */
     public String toString(){
         return "FuelType: " + this.f + " Current Fuel Level: " + this.currentFuelLevel + " Max Fuel Level: " + this.maxFuelLevel;
     }
+
     public static void main(String[] args){
         Engine myEngine = new Engine(FuelType.ELECTRIC, 0.0, 100.0);
         System.out.println(myEngine.getFuelType());
